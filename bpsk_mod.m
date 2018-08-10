@@ -1,6 +1,6 @@
 function bpsk = bpsk_mod(x,fs,fc,bperiod)
 % Note that fc should be an integer multiple of 1/bperiod
-% fs >= 2*fc according to Nyquist theorem. However use fs>= 20*fc for good
+% fs >= 2*bandwidth according to Nyquist theorem. However use fs>= 20*bandwidth for good
 % results. N is calculated as N = fs*bperiod.
 % example values:
 % x = randi([0,1],1,10);

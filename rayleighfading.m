@@ -1,11 +1,10 @@
-function rx_t = rayleighfading(fc,v)
+function rx_t = rayleighfading(fc,fs,v)
 %--------------------------Rayleigh Fading Channel-------------%
-N = 8;
+N = 16;
 fm = v*fc/(3e8);
 df = 2*fm/(N-1);
 f = -fm:df:fm;
 T = 1/df;
-fs = 4e7;
 Tsamp = 1/fs;
 M=round(fs/df);
 % Complex Gaussian Random Variables for In-Phase Component%
