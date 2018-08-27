@@ -1,7 +1,9 @@
-fs = 90e6;
-fc = 900e6;
-bperiod = 1e-5;N = fs * bperiod ;
-t = linspace(0,length(x)*bperiod,N*length(x));
+function bitseq = qpsk_demod(z,fs,fc,bperiod)
+% fs = 90e6;
+% fc = 900e6;
+% bperiod = 1e-5;
+N = fs * bperiod ;
+% t = linspace(0,length(z)*bperiod,N*length(z));
 t_bit = linspace(0,2*bperiod,N*2);
 
 % Correlator 1
@@ -32,3 +34,6 @@ for i = 1:(2*N):length(z)
    end
    bitseq_Q = [bitseq_Q bit];
 end
+bitseq = zeros(1,length(bitseq_I)+length(bitseq_Q));
+bitseq(1:2:end)=bitseq_I;
+bitseq(2:2:end)=bitseq_Q;
