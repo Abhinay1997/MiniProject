@@ -23,7 +23,9 @@ end
 
 subplot(2,1,1);
 plot(t,bsamp,'LineWidth',2);
-
+xlabel('Time(sec)')
+ylabel('Bit')
+title('Input Bit Sequence')
 % BPSK modulation %
 y1 = A*cos(2*pi*fc*t_bit);
 y2 = A*cos(2*pi*fc*t_bit+pi);
@@ -38,3 +40,6 @@ for i=1:length(x)
 end
 subplot(2,1,2);
 plot(t,bpsk);
+xlabel('Time(sec)')
+ylabel('Amplitude')
+title('BPSK modulated waveform')

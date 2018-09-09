@@ -12,14 +12,12 @@ n = 1:N0
 alpha_n = 2*pi*(n-0.5)/N;
 beta_n = pi*n/N;
 Ak = hadamard(N0);
-t = linspace(0,tSim,tSim*fs);
+t = linspace(0,tSim,ceil(tSim*fs));
 Tk = [];
 omega_m = 2*pi*fm;
 for q = 1 : NumWaves
-
     rand('state',sum(100*clock))                % reset randomizer
     theta_nk = rand(1,length(n)) * 2 *pi;       % create uniform random phase in range [0,2pi]
-
     sumRes = 0;
 	for i = 1 : N0
         term1 = Ak(q,i);
@@ -27,11 +25,9 @@ for q = 1 : NumWaves
         term3 = cos(omega_m .* t .* cos(alpha_n(i)) + theta_nk(i));
         sumRes = sumRes + (term1 .* term2 .* term3);
 	end
-    
-    Tk(q,:) = sqrt(2/N0) .* sumRes;
-    
-
+    Tk(q,:) = sqrt(2/N0) .* sumRes;  
 end
 % plot results
-figure(20); subplot(3,1,1); semilogy(t,abs(Tk(1,:)));
+plot(t,10*log10(abs(Tk(1,:))));
 xlabel('Time (sec)'); ylabel('Signal Strength (dB)'); 
+ylim([-40 5]);
