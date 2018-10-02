@@ -12,7 +12,7 @@ semilogy(-5:2:20,BER,'-o');
 grid on;
 xlabel('SNR (dB)')
 ylabel('BER')
-title({'QPSK BER plot for Rayleigh Fading channel at','1Mbps fc = 900MHz and velocity = 122km/hr'});
+title({'QPSK BER vs. SNR for Rayleigh Fading channel at','200kbps fc = 900MHz and velocity = 100km/hr'});
 hold on;
 semilogy(-5:2:20,ber,'-x');
 legend('Rayleigh channel','AWGN channel')
