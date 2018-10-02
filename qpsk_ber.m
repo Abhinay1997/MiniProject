@@ -10,8 +10,8 @@ a = randi([0,1],1,numberOfBits);
 % 200kbps      |      5e-6       |       4e6
 % 500kbps      |      2e-6       |       1e7
 % 1Mbps        |      1e-6       |       2e7
-bperiod = 1e-6;
-fs = 2e7;
+bperiod = 5e-6;
+fs = 4e6;
 fc = 900e6;
 v = 28;
 % Step 3

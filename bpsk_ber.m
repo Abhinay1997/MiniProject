@@ -10,8 +10,8 @@ a = randi([0,1],1,numberOfBits);
 % 200kbps      |      5e-6       |       4e6
 % 500kbps      |      2e-6       |       1e7
 % 1Mbps        |      1e-6       |       2e7
-bperiod = 5e-6;
-fs = 4e6;
+bperiod = 1e-5;
+fs = 2e6;
 fc = 900e6;
 v = 28;
 % Step 3
@@ -25,7 +25,7 @@ if strcmp(channel,'rayleigh')
  temp = dentmodel(fc,fs,v,2,tSim);
  A = abs(temp(1,:));
  B = abs(temp(2,:));
- delay = 20e-3
+ delay = 2e-3;
 %sample_pad = delay*fs
  sample_pad = floor(delay*fs)
  ch = 0.9 * A + 0.435*[zeros(1,sample_pad) B(1,1:(end-sample_pad))];
